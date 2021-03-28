@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'clearance', '~> 2.3.1'
 gem 'rexml'
 gem 'httparty', '~> 0.18.1'
+gem 'pg_search', '~> 2.3.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
