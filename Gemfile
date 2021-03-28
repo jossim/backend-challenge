@@ -40,6 +40,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.1.0'
   gem 'faker', '~> 2.17.0'
   gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber', git: 'https://github.com/jossim/guard-cucumber', ref: '4de1577'
