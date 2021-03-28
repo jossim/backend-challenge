@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PullWebsiteContentJob, type: :job do
-  let(:user) { FactoryBot.build(:user, website_url: 'http://localhost:3000/dog-test.html') }
+  let(:user) { FactoryBot.build(:user, website_url: 'http://josephis.me/dog-test.html') }
 
   it "gets the headings from a user's website" do
     described_class.perform_now user

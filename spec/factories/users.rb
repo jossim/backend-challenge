@@ -1,7 +1,7 @@
 websites = [
-  'http://localhost:3000/fish-test.html',
-  'http://localhost:3000/dog-test.html',
-  'http://localhost:3000/cat-test.html'
+  'http://josephis.me/fish-test.html',
+  'http://josephis.me/dog-test.html',
+  'http://josephis.me/cat-test.html'
 ]
 
 FactoryBot.define do
