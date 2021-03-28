@@ -13,11 +13,11 @@ RSpec.describe PullWebsiteContentJob, type: :job do
     expect(user.website_content).to eq content
   end
 
-  it "logs errors" do
+  it "sets content to an error message is the URL doesn't work" do
     user.website_url = "http://null.example.com/"
 
     described_class.perform_now user
 
-    expect(user.website_content).to eq "Request to URL failed, no content"
+    expect(user.website_content).to eq "Request to URL failed"
   end
 end
