@@ -1,0 +1,16 @@
+services:
+  database:
+    build: docker_builds/database
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    ports:
+      - "3030:3000"
+      - "3035:3035"
+    volumes:
+      - .:/opt/app
+    links: 
+      - database
+    depends_on:
+      - database
