@@ -8,6 +8,8 @@ Style/ClassAndModuleChildren:
       Enabled: false
 Documentation:
       Enabled: false
+RSpec/MultipleExpectations:
+      Max: 2
 AllCops:
     NewCops: enable
     Exclude:
