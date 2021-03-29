@@ -19,6 +19,7 @@ class ShortenUrlJob < ApplicationJob
   def set_user_short_url(json, user)
     if json['url']['status'] == 7
       user.short_url = json['url']['shortLink']
+      user.save
       logger.info "shortened url from #{user.website_url} to #{user.short_url}"
     else
       logger.error "API status #{body['url']['status']}. Failed to shorten URL #{user.website_url}"

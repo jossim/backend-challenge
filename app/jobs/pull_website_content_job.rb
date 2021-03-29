@@ -4,6 +4,7 @@ class PullWebsiteContentJob < ApplicationJob
   def perform(user)
     html = html_from_url(user.website_url)
     user.website_content = header_text_from_html(html)
+    user.save
   end
 
   private
