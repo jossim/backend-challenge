@@ -1,0 +1,11 @@
+<h1>Edit <%= @user.name %></h1>
+
+<%= form_for @user do |form| %>
+    <p>Add friend</p>
+
+    <%= form.select "friends", @user.not_friends_yet.collect { |u| [u.name, u.id ]} %>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

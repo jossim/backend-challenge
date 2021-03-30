@@ -1,0 +1,41 @@
+<h1><%= @user.name %>'s page</h1>
+
+<div class='row'>
+    <section class='col'>
+
+        <h2>Infomation</h2>
+        <p><b>Webiste headings: </b><%= @user.website_content %></p>
+
+        <p><b>URL: </b> <%= link_to @user.website_url, @user.website_url %>
+        <p><b>Short URL: </b> <%= link_to @user.short_url, @user.short_url %>
+
+        <p><b>Friends</b></p>
+
+        <ul>
+            <% @user.friends.each do |friend| %>
+                <li><%= link_to friend.name, friend %></li>
+            <% end %>
+        </ul>
+
+        <p><%= link_to 'edit user', edit_user_path(@user) %></p>
+    </section>
+
+    <section class='col'>
+        <h2>Search for experts</h2>
+        <%= form_with url: user_path(@user), method: 'get' do |f| %>
+            <%= f.label :search %>
+            <%= f.text_field :search, placeholder: 'search a topic', value: params[:search] %>
+            <%= f.submit 'search' %>
+        <% end %>
+
+        <br/>
+        <ul class='list-group'>
+            <% @experts.each do |expert| %>
+                <li class='list-group-item'>
+                    <%= render  partial: 'friendship_path', locals: { user: @user, other_user: expert } %>
+                </li>
+            <% end %>
+        </ul>
+
+    </section>
+</div>
