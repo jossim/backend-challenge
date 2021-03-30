@@ -23,5 +23,25 @@ RSpec.describe User, type: :model do
 
       expect(user1.friendship_path_to(user3)).to eq [user1, user2, user3]
     end
+
+    it "finds a friendship path when there's more than one user between" do
+      # user1 > user2 > user3 > user4
+      user1.friends << user2
+      user2.friends << user3
+      user3.friends << user4
+
+      expect(user1.friendship_path_to(user4)).to eq [user1, user2, user3, user4]
+    end
+
+    it "finds a friendship path when there are dead ends" do
+      # user1 > user2 > user4
+      # user1 > user3 > user5
+      user1.friends << user2
+      user1.friends << user3
+      user2.friends << user4
+      user3.friends << user5
+
+      expect(user1.friendship_path_to(user5)).to eq [user1, user3, user5]
+    end
   end
 end
