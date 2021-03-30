@@ -10,6 +10,9 @@ Documentation:
       Enabled: false
 RSpec/MultipleExpectations:
       Max: 2
+Metrics/BlockLength:
+     Exclude:
+        - 'spec/**/*'
 AllCops:
     NewCops: enable
     Exclude:
